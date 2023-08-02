@@ -1,0 +1,354 @@
+// Name- Prerana Rajesh Gajare      Class-SEIT      RollNo-SI41  
+/*PROBLEM STATEMENT:-
+   1.	Write a program in C language for maintaining a database of student records and perform the following 
+   operations. 
+	a.	Create Database 
+	b.	Display Database 
+	c.	Delete Records 
+	d.	Update Record
+	e.	Search Record 
+	f.	Insert the record
+*/
+//Source code:-
+#include<stdio.h>
+struct student//USER DEFINED DATATYPE
+{
+	char name[10];//DATA MEMBERS
+	char bloodgroup;
+	int rollno;
+	int percentage;
+	char grade;
+	
+}x[10];//STRUCTURE VARIABLE
+void getdata(int e)// INPUT DATA FROM USER
+{
+
+	
+		printf("\nEnter the name of student:");
+		scanf("%s",x[e].name);
+		printf("\nEnter the bloodgroup of student:");
+		scanf("%s",&x[e].bloodgroup);
+		printf("\nEnter the rollno of student:");
+		scanf("%d",&x[e].rollno);
+		printf("\nEnter the percentage of student:");
+		scanf("%d",&x[e].percentage);
+		printf("\nEnter the grade of student:");
+		scanf("%s",&x[e].grade);
+		
+}
+void display(int f)// DISPLAY DATA FROM USER
+{
+		printf("\nName of student is:%s",x[f].name);
+		
+	    printf("\nBloodgroup of student is :%s",&x[f].bloodgroup);
+		
+		printf("\nRollno of student is:%d",x[f].rollno);
+		
+		printf("\nPercentage of student is :%d",x[f].percentage);
+		
+		printf("\nGrade of student is :%s",&x[f].grade);	
+}
+
+void add_record(int g)// ADDING  A RECORD TO THE DATABASE
+{
+	printf("\nAdd a record:");
+    getdata(g);
+	
+}
+void delete_record(int h)// DELETING  A RECORD TO THE DATABASE
+{
+	int del,n;
+	printf("\ndelete :");
+	scanf("%d",&del);
+
+	for(int k=del-1;k<n+1;k++)
+	{
+
+        x[k]=x[k+1];
+
+    }
+}
+void modify(int j)// MODIFYING A RECORD TO THE DATABASE
+{
+	int modify;
+	printf("\nEnter the record to modified :");
+	scanf("%d",&modify);
+	getdata(modify-1);
+	
+}
+void search(int k)// SEARCH A RECORD TO THE DATABASE
+{
+	int search;
+	printf("\nEnter the record to search:");
+	scanf("%d",&search);
+	display(search-1);
+}
+
+int main()
+{
+ int n,l;
+ int a=0;
+ int b;
+ 
+printf("\nEnter the no of records you want:");//INPUT NUMBER OF RECORDS TO BE PRESENT IN DATABASE
+	scanf("%d",&n);
+	
+	a=n;
+	for(b=0;b<n;b++)
+	{
+	getdata(b);// CALLING GETDATA FUNCTION	
+	}
+	
+	do
+	{
+	
+	printf("\nEnter the case to be executed\n1-Display the record\n2-Add a record\n3-Delete a record\n4-Modify a record\n5-Search a record\n6-Exit(1,2,3,4,5,6):");
+	scanf("%d",&l);
+switch(l)
+{
+	case 1:
+		for(b=0;b<n;b++)
+    	{
+	
+	        display(b);// CALLING DISPLAY FUNCTION		
+	    }
+	     printf("\n Total No. of students = ");//TO DISPLAY COUNT OF STUDENT RECORD PRESENT
+         printf("%d", a);
+         break;
+    case 2:
+    		add_record(n);// CALLING ADDRECORD FUNCTION	
+	       a=a+1;
+	       printf("\nUpdated database:");
+	       for(b=0;b<a;b++)
+	       {
+		      display(b);  
+	       }
+	        printf("\n Total No. of students = ");//TO DISPLAY COUNT OF STUDENT RECORD AFTER ADDING A RECORD
+            printf("%d", a);
+            break;
+            
+    case 3:
+    	delete_record(n);// CALLING DELETERECORD FUNCTION	
+	     a=a-1;
+	    printf("\nUpdated database:");
+	    for(b=0;b<a;b++)
+	    {
+		    display(b);  
+	   }
+	   printf("\n Total No. of students = ");//TO DISPLAY COUNT OF STUDENT RECORD AFTER DELETING A RECORD
+       printf("%d", a);
+       break;
+    
+    case 4:
+    	modify(n);// CALLING MODIFY FUNCTION	
+	      printf("\nUpdated database:");
+	
+           for(b=0;b<n;b++)
+	      {
+     
+            display(b);   
+          }
+
+        printf("\n Total No. of students = ");//TO DISPLAY COUNT OF STUDENT RECORD AFTER MODIFYING
+        printf("%d", a);
+      break;
+    case 5:
+    	search(n);// CALLING SEARCH FUNCTION	
+	    break;
+	case 6:
+		printf("\nthe end");
+	 } 	
+	 
+}while(l!=6);
+}
+
+*********************************************OUTPUT*******************************************************
+
+Enter the no of records you want:3
+
+Enter the name of student:Avik
+
+Enter the bloodgroup of student:O
+
+Enter the rollno of student:01
+
+Enter the percentage of student:97
+
+Enter the grade of student:A
+
+Enter the name of student:Bharat
+
+Enter the bloodgroup of student:A
+
+Enter the rollno of student:02
+
+Enter the percentage of student:87
+
+Enter the grade of student:B
+
+Enter the name of student:Cynthia
+
+Enter the bloodgroup of student:B
+
+Enter the rollno of student:03
+
+Enter the percentage of student:72
+
+Enter the grade of student:C
+
+Enter the case to be executed
+1-Display the record
+2-Add a record
+3-Delete a record
+4-Modify a record
+5-Search a record
+6-Exit(1,2,3,4,5,6):1
+
+Name of student is:Avik
+Bloodgroup of student is :O
+Rollno of student is:1
+Percentage of student is :97
+Grade of student is :A
+Name of student is:Bharat
+Bloodgroup of student is :A
+Rollno of student is:2
+Percentage of student is :87
+Grade of student is :B
+Name of student is:Cynthia
+Bloodgroup of student is :B
+Rollno of student is:3
+Percentage of student is :72
+Grade of student is :C
+ Total No. of students = 3
+Enter the case to be executed
+1-Display the record
+2-Add a record
+3-Delete a record
+4-Modify a record
+5-Search a record
+6-Exit(1,2,3,4,5,6):2
+
+Add a record:
+Enter the name of student:Dhruv
+
+Enter the bloodgroup of student:B
+
+Enter the rollno of student:04
+
+Enter the percentage of student:70
+
+Enter the grade of student:C
+
+Updated database:
+Name of student is:Avik
+Bloodgroup of student is :O
+Rollno of student is:1
+Percentage of student is :97
+Grade of student is :A
+Name of student is:Bharat
+Bloodgroup of student is :A
+Rollno of student is:2
+Percentage of student is :87
+Grade of student is :B
+Name of student is:Cynthia
+Bloodgroup of student is :B
+Rollno of student is:3
+Percentage of student is :72
+Grade of student is :C
+Name of student is:Dhruv
+Bloodgroup of student is :B
+Rollno of student is:4
+Percentage of student is :70
+Grade of student is :C
+ Total No. of students = 4
+Enter the case to be executed
+1-Display the record
+2-Add a record
+3-Delete a record
+4-Modify a record
+5-Search a record
+6-Exit(1,2,3,4,5,6):3
+
+delete :2
+
+Updated database:
+Name of student is:Avik
+Bloodgroup of student is :O
+Rollno of student is:1
+Percentage of student is :97
+Grade of student is :A
+Name of student is:Cynthia
+Bloodgroup of student is :B
+Rollno of student is:3
+Percentage of student is :72
+Grade of student is :C
+Name of student is:Dhruv
+Bloodgroup of student is :B
+Rollno of student is:4
+Percentage of student is :70
+Grade of student is :C
+ Total No. of students = 3
+Enter the case to be executed
+1-Display the record
+2-Add a record
+3-Delete a record
+4-Modify a record
+5-Search a record
+6-Exit(1,2,3,4,5,6):4
+
+Enter the record to modified :2
+
+Enter the name of student:Cynthia
+
+Enter the bloodgroup of student:B
+
+Enter the rollno of student:02
+
+Enter the percentage of student:75
+
+Enter the grade of student:C
+
+Updated database:
+Name of student is:Avik
+Bloodgroup of student is :O
+Rollno of student is:1
+Percentage of student is :97
+Grade of student is :A
+Name of student is:Cynthia
+Bloodgroup of student is :B
+Rollno of student is:2
+Percentage of student is :75
+Grade of student is :C
+Name of student is:Dhruv
+Bloodgroup of student is :B
+Rollno of student is:4
+Percentage of student is :70
+Grade of student is :C
+ Total No. of students = 3
+Enter the case to be executed
+1-Display the record
+2-Add a record
+3-Delete a record
+4-Modify a record
+5-Search a record
+6-Exit(1,2,3,4,5,6):5
+
+Enter the record to search:3
+
+Name of student is:Dhruv
+Bloodgroup of student is :B
+Rollno of student is:4
+Percentage of student is :70
+Grade of student is :C
+Enter the case to be executed
+1-Display the record
+2-Add a record
+3-Delete a record
+4-Modify a record
+5-Search a record
+6-Exit(1,2,3,4,5,6):6
+
+the end
+--------------------------------
+Process exited after 283.5 seconds with return value 0
+Press any key to continue . . .
